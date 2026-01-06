@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>OCR Tulisan Tangan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>OCR Tulisan Tangan</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <div class="upload-box">
+            <p>Pilih gambar tulisan tangan</p>
+            <input type="file" name="image" required>
+        </div>
+
+        <div class="center">
+            <button type="submit">Proses OCR</button>
+        </div>
+    </form>
+
+    {% if hasil %}
+    <div class="result">
+        <h2>Hasil OCR</h2>
+        <div class="result-box">{{ hasil }}</div>
+    </div>
+    {% endif %}
+
+    <div class="history">
+        <a href="/history">📄 Lihat History</a>
+    </div>
+</div>
+
+</body>
+</html>
